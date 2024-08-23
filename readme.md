@@ -22,7 +22,7 @@ The Pi Pico 1 or 2 will work with this code
 
 ## Run this project on your own
 ```
-git clone <your-repo-url>
+git clone https://github.com/BrianLesko/pi-pico-pwm
 cd repository
 mkdir build
 cd build
