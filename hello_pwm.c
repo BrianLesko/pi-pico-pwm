@@ -29,8 +29,9 @@ int main() {
     pwm_set_wrap(slice_num, 4095);
 
     // Set the duty cycle for the servo position
-    pwm_set_chan_level(slice_num, PWM_CHAN_A, 800); // between 204 and 409 
-
+    // THIS IS WHAT VALUE TO EDIT
+    pwm_set_chan_level(slice_num, PWM_CHAN_A, 800); // between 1200 and 100? 
+  
     // Set the PWM running
     pwm_set_enabled(slice_num, true);
 

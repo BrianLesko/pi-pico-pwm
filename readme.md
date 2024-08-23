@@ -1,6 +1,6 @@
 
-# Raspberry pi powered Airplane 
-Control the airplane throttle and steering servos over the internet.
+# Pico PWM Microcontroller
+Control hardware with low voltage pulse width modulation and the [raspberry pi pico](https://www.raspberrypi.com/products/raspberry-pi-pico-2/), a very cheap and fast microcontroller. Capable of running code in micropython or C/C++, the pico is used here to control a servo motor
 
 &nbsp;
 
@@ -9,67 +9,46 @@ Control the airplane throttle and steering servos over the internet.
 &nbsp;
 
 ## Software Dependencies
-
-This code uses the following libraries:
-- `streamlit`: for building the user interface.
-- `numpy`: for creating arrays.
-- `matplotlib`: for plotting the stepper motor visualization
-- `hidapi`: for accessing usb connections on the host device
+- `VS Code`: Integrated development environment.
+- `Pico Extension`: VS Code extension for Pi Pico development.
+- `CMake`: Build system generator.
+- `GNU Arm Embedded Toolchain`: Compiler for ARM Cortex-M microcontrollers.
+- `Pico SDK`: Software Development Kit for Raspberry Pi Pico.
 
 &nbsp;
 
 ## Hardware Dependencies
-1. A base station computer
-2. A second computer for the robot
-3. A PWM capable arduino + cable + servo motors and BLDC Motor controller
-4. A PS5 remote + cable
+The Pi Pico 1 or 2 will work with this code
 
-## Usage
-1. clone this repository
+## Run this project on your own
 ```
-git clone ...
+git clone <your-repo-url>
+cd repository
+mkdir build
+cd build
+cmake ..
+make
+# Copy the .uf2 file to the Pico's USB drive 
 ```
-2. The base station and robot computers must be on the same network. Set up each device with a static IP
-2. Change the robot IP in 'app.py' and 'car.py' you can also change the port which is '12345'
-3. Change the PS5 remote vendorID and productID in 'app.py'
-4. Plug the arduino into the robot
-5. Run the arduino sketch.ino file on your arduino
-6. Run the car.py file on your robot 
-```
-python car.py
-```
-7. plug the PS5 remote into the base station
-8. run the streamlit app with the following command in your base station terminal
-```
-streamlit run app.py
-```
-
-This will start the local Streamlit server, and you can access the interface by opening a web browser and navigating to `http://localhost:8501`.
 
 &nbsp;
 
 ## Repository Structure
 ```
 repository/
-├── app.py # The base station UI to send the Internet commands to the robot
-├── customize_gui # class for adding gui elements
-├── dualsense.py # The class used to decode received bytes from the wired controller
-├── ethernet.py # a helper class for sending Internet IP communciation
-├── car.py # Recieves the internet commands and relays them to the arduino
-├── sketch.ino # the arduino code to control the motors
-├── requirements.txt # the python packages needed to run locally
-├── .gitignore # includes the local virtual environment named my_env
-└── docs/
-    └── preview.png # preview photo for Github
+├── CMakeLists.txt          # CMake configuration file for building the project
+├── build/                  # Directory for build output files
+├── hello_pwm.c             # Main source code file for PWM control
+├── pico_sdk_import.cmake   # CMake file to import the Pico SDK
+└── readme.md               # Project documentation and instructions
 ```
 
 &nbsp;
 
 ## Topics 
 ```
-Python | Low Code UI | Mobile robot | Internet IP 
-HIDapi | decode bytes | PS5 | Sony | Dualsense | external device | communication 
-Mechanical and Robotics engineer
+C | PWM | Raspberry Pi Pico | Microcontroller | Embedded Systems 
+CMake | Hardware Control | Servo Motor | SDK | Electronics
 ```
 &nbsp;
 
